@@ -1,5 +1,10 @@
 package int64utils
 
+import (
+	"strconv"
+	"strings"
+)
+
 func Difference(a, b []int64) []int64 {
 	out := make([]int64, 0)
 
@@ -19,4 +24,16 @@ func Difference(a, b []int64) []int64 {
 	}
 
 	return out
+}
+
+func JoinString(a []int64, sep string) string {
+	var s []string
+	for _, i := range a {
+		s = append(s, String(i))
+	}
+	return strings.Join(s, sep)
+}
+
+func String(i int64) string {
+	return strconv.FormatInt(i, 10)
 }
